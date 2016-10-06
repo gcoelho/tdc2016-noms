@@ -1,0 +1,400 @@
+<!doctype html>
+<html>
+  <head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>TDC POA 2016 - Noms</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/night.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+				<section data-background="images/tdc.png">
+					<h1>Noms</h1>
+					<h2>A new database for the Big Data World</h2>
+					<h5>The Developers Conference</h5>
+					<h5>Porto Alegre 2016</h5>
+				</section>
+
+				<section>
+					<h2>Big Data</h2>
+					<blockquote cite="https://en.wikipedia.org/wiki/Big_data">
+						&ldquo;Big data is a term for data sets that are so large or complex that traditional data processing applications are inadequate to deal with them.&rdquo;
+					</blockquote>
+					<i style="font-size:20px">source: https://en.wikipedia.org/wiki/Big_data</i>
+				</section>
+
+				<section>
+					<h2>3D Data Management: Controlling Data Volume, Velocity, and Variety</h2>
+
+					<p>Doug Laney, 6th February 2001</p>
+				</section>
+
+				<section data-background="images/bigdata-3v.jpg">
+				</section>
+
+				<section>
+					<h2>today's challenges include...</h2>
+
+					<p><span class="fragment fade-out">... analysis, querying, privacy,</span> sharing & storage 
+					</p>
+				</section>
+
+				<section>
+					<h2>Introducing Noms</h2>
+					<i>&ldquo;Noms is a decentralized database based on ideas from Git.&rdquo;</i>
+					<br><br><img src="images/nommy.png">
+				</section>
+
+				<section>
+					<h2><a href="http://attic.io/">Attic Labs</a></h2>
+					<ul>
+						<li>Founders (Ex-Googlers): <a href="https://www.linkedin.com/in/rafael-weinstein-21718">Rafael Weinstein</a>
+						/ <a href="https://www.linkedin.com/in/aaron-boodman-12b150">Aaron Boodman</a></li>
+						<li>Raised $8.1M (mainly from Greylock Partners)</li>
+						<li>Source code available <a href="https://github.com/attic-labs/noms">@GitHub</a>, developed in Go</li>
+					</ul>
+					<img src="images/attic-labs.jpeg">
+				</section>
+
+				<section>
+					<h2>About Noms</h2>
+
+					<section>
+						<h3>Decentralized</h3>
+						<p>Data is modeled as a directed acyclic graph</p>
+						<p>Users can have their own copy of the database</p>
+						<p>Any peer is free to move forward independently</p>
+					</section>
+					<section>
+						<h3>Content-addressed</h3>
+						<p>Intended to store data that does not change over time</p>
+						<p>Concept of <span>content identifier</span>
+						<p>Duplicated data is automatically deduplicated</p>
+					</section>
+					<section>
+						<h3>Append-only</h3>
+						<p>Data is never removed by default</p>
+					</section>
+					<section>
+						<h3>Strongly Typed</h3>
+						<p>Every value has a type</p>
+						<p>Types are evaluated when you insert new data</p>
+					</section>
+				</section>
+
+				<section>
+					<h2>Noms X Traditional Database</h2>
+					<table>
+						<thead>
+							<tr>
+								<th>Noms</th>
+								<th>Traditional</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Any peer's state is valid</td>
+								<td>Single source of truth</td>
+							</tr>
+							<tr>
+								<td>Historical records</td>
+								<td>Single point in time</td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						## Noms Concepts
+
+						- Databases / Datasets
+						- Chunks
+						- Types
+							- Boolean, Number, List<T>, Blob, etc
+							- Allow data to be self-describing
+							- Every chunk has a header that describes its type
+							- Types can be verified by clients
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						## Type Accretion
+
+						Widen (or narrow) the type of any container
+						```
+						Set<struct {name: String}>
+						```
+						becomes
+						```
+						Set<struct {name: String}> | struct {name: String, age: Number}>>
+						```
+					</script>
+				</section>
+
+				<section>
+					<h2>Project Status</h2>
+
+					<section data-markdown>
+						<script type="text/template">
+							### Data Format
+
+							> Core data format defined
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							### Completeness
+
+							> We're just getting started
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							### API
+
+							> Public API will continue to evolve
+						</script>
+					</section>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						## Noms CLI & SDK
+						An introduction to Noms CLI and JS SDK
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						## Installing
+						Command tools can be downloaded from GitHub or build from source code (requires Go 1.6+)
+						
+						https://github.com/attic-labs/noms
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						## Serving a database
+						Databases uses Google LevelDB as backend and can be persistent or not (in-memory).
+						```
+						noms serve ldb:<database>
+						```
+						```
+						noms serve mem
+						```
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						## Querying datasets
+						List of available datasets in a database
+						```
+						noms ds ldb:<database>
+						```
+						```
+						noms ds http://<server:port>
+						```
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						## Syncing datasets within local and remote databases
+						Similar to git push / pull
+						```
+						noms sync <origin> <destination>
+						```
+						Pulling from remote to local
+						```
+						noms sync http://www.acme.com:8000::ds ldb:db::ds
+						```
+						Pushing from local to remote
+						```
+						noms sync ldb:db::ds http://www.acme.com:8000::ds
+						```
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						## Historical commit log of a dataset
+						```
+						noms log http://<server:port>::<dataset>
+						```
+						```
+						commit nb28vpmt3u0of37u1hs2lis5nqo7942j
+						Parent: 4niqn6lu9kuq6i35ovq26vqfaov60vs3
+						(root) {
+						+    {
+						+     name: "Gustavo",
+						+     phone: "9876-5432",
+						+   }
+						}
+
+						commit 4niqn6lu9kuq6i35ovq26vqfaov60vs3
+						Parent: None
+						```
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						## Displaying meta data and data values
+						```
+						noms show http://<server:port>::[<dataset>][#<commit>]
+						```
+						```
+						struct Commit {
+							meta: struct {},
+							parents: Set<Ref<Cycle<0>>>,
+							value: List<struct {
+								given: String,
+								male: Bool,
+							}>,
+						}({
+							meta:  {},
+							parents: {},
+							value: [  // 4 items
+								{
+									given: "Rickon",
+									male: true,
+								},
+								{
+									given: "Bran",
+									male: true,
+								},
+								{
+									given: "Arya",
+									male: false,
+								},
+								{
+									given: "Sansa",
+									male: false,
+								},
+							],
+						})
+						```
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						## Diffing two commits
+						```
+						noms diff http://<server:port>::#<commit-1> http://<server:port>::#<commit-2>
+						```
+						```
+						.parents {
+						-   nb28vpmt3u0of37u1hs2lis5nqo7942j
+						+   4niqn6lu9kuq6i35ovq26vqfaov60vs3
+						}
+						.value {
+						-    {
+						-     name: "Luiz",
+						-     phone: "1234-5678",
+						-   }
+						}
+						```
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						## JavaScript SDK
+						Allows a developer to work with databases, datasets, commits, data, etc.
+
+						*npm install @attic/noms*
+
+						*https://github.com/attic-labs/noms/blob/master/doc/js-tour.md*
+					</script>
+				</section>
+
+				<section>
+					<h1>DEMO</h1>
+					<img src="images/demo.jpg">
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						## References
+
+						- [Noms @ GitHub](https://github.com/attic-labs/noms)
+						- [Introduction to Noms](https://github.com/attic-labs/noms/blob/master/doc/intro.md)
+						- [JavaScript API](http://docs.noms.io/js/)
+						- [NPM API Package](https://www.npmjs.com/package/@attic/noms)
+						- [Slack Team](http://slack.noms.io/)
+						- [Attic.io](http://attic.io/)
+					</script>
+				</section>
+
+				<section>
+					<h2>Thanks!!</h2>
+					<table>
+						<tr>
+							<td style="text-align:left;vertical-align:center;">
+								Gustavo Coelho
+								<br>Software Engineer @ Hewlett Packard Enterprise
+								<p style="font-size:20px">
+								<br>Email: gcoelho@gcoelho.com
+								<br>Twitter: @gafcoelho
+								<br>GitHub: github.com/gcoelho
+								</p>
+							</td>
+						</tr>
+						<tr>
+							<td style="text-align:right;vertical-align:center;">
+								Luiz Svoboda
+								<br>Software Engineer @ Hewlett Packard Enterprise
+								<p style="font-size:20px">
+								<br>Email: luizek@gmail.com
+								<br>Twitter: @lhsvobodaj
+								<br>GitHub: github.com/lhsvobodaj
+								</p>
+							</td>
+						</tr>
+					</table>
+				</section>
+
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
