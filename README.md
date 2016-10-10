@@ -35,6 +35,6 @@ Software Engineer @ Hewlett Packard Enterprise
 
 Email: luizek@gmail.com
 
-Twitter: @lhsvobodaj
+Twitter: @luizsvoboda
 
 GitHub: github.com/lhsvobodaj
